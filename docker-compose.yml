@@ -8,6 +8,7 @@ services:
             - tlab-php
         volumes:
             - "./nginx/site.conf:/etc/nginx/conf.d/default.conf"
+
     tlab-php:
         image: php:7-fpm
         volumes:
@@ -20,3 +21,17 @@ services:
             - "./mysql/conf:/etc/mysql/conf.d"
         environment:
             - MYSQL_ROOT_PASSWORD=password
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            - PMA_ARBITRARY=1
+            - PMA_HOST=mysql
+            - PMA_USER=root
+            - PMA_PASSWORD=password
+        depends_on:
+            - mysql
+        ports:
+            - 8080:80
+        volumes:
+            - "./phpmyadmin/sessions:/sessions"
