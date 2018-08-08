@@ -3,7 +3,7 @@ services:
     nginx:
         image: nginx
         ports:
-            - "80:80"
+            - "9000:80"
         depends_on:
             - php
         volumes:
@@ -32,6 +32,6 @@ services:
         depends_on:
             - mysql
         ports:
-            - 8080:80
+            - 9001:80
         volumes:
             - "./phpmyadmin/sessions:/sessions"
