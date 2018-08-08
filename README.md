@@ -1,2 +1,5 @@
-# skillup-php-step1
-オンラインスキルアップSTEP１環境（docker）
+# オンラインスキルアップSTEP1開発環境
+
+## オンラインスキルアップSTEP１環境構築手順（Windows）
+
+## オンラインスキルアップSTEP１環境構築手順（Mac）
