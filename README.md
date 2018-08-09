@@ -25,7 +25,7 @@ http://localhost:9001
 ## 構成
 * phpなコンテンツは./appに配置となります  
 * mysqlの設定は./mysql/conf/custom.cnf
-* nginxの設定は./nginx/sete.conf
+* nginxの設定は./nginx/site.conf
 
 ```
 .
