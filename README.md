@@ -20,3 +20,28 @@ http://localhost:9000
 
 phpmyadmin  
 http://localhost:9001
+
+
+## 構成
+* phpなコンテンツは./appに配置となります  
+* mysqlの設定は./mysql/conf/custom.cnf
+* nginxの設定は./nginx/sete.conf
+
+```
+.
+├── app
+│   └── index.php
+├── mysql
+│   └── conf
+│       └── custom.cnf
+│   └── data
+│       └── .gitkeep
+├── nginx
+│   └── site.conf
+├── phpmyadmin
+│   └── sessions
+│       └── .gitkeep
+├── docker-compose.yml
+├── .gitignore
+└── README.md
+```
