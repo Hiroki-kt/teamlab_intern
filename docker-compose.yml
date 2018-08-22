@@ -7,7 +7,7 @@ services:
         depends_on:
             - php
         volumes:
-            - "./nginx/site.conf:/etc/nginx/conf.d/default.conf"
+            - ./nginx/site.conf:/etc/nginx/conf.d/default.conf:cached
 
     php:
         image: php:7-fpm
@@ -17,8 +17,8 @@ services:
     mysql:
         image: mysql:5.7
         volumes:
-            - "./mysql/data:/var/lib/mysql"
-            - "./mysql/conf:/etc/mysql/conf.d"
+            - ./mysql/data:/var/lib/mysql:cached
+            - ./mysql/conf:/etc/mysql/conf.d:cached
         environment:
             - MYSQL_ROOT_PASSWORD=password
         command: --innodb-use-native-aio=0
