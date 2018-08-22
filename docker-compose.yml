@@ -21,6 +21,7 @@ services:
             - "./mysql/conf:/etc/mysql/conf.d"
         environment:
             - MYSQL_ROOT_PASSWORD=password
+        command: --innodb-use-native-aio=0
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
@@ -33,5 +34,3 @@ services:
             - mysql
         ports:
             - 9001:80
-        volumes:
-            - "./phpmyadmin/sessions:/sessions"

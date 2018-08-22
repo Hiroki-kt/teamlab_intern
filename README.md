@@ -38,9 +38,6 @@ http://localhost:9001
 │       └── .gitkeep
 ├── nginx
 │   └── site.conf
-├── phpmyadmin
-│   └── sessions
-│       └── .gitkeep
 ├── docker-compose.yml
 ├── .gitignore
 └── README.md
