@@ -1,6 +1,5 @@
 # オンラインスキルアップSTEP1開発環境
 
-
 ## 起動・停止
 
 起動
@@ -18,22 +17,19 @@ $ docker-compose down
 index.php  
 http://localhost:9000
 
-phpmyadmin  
-http://localhost:9001
+pgadmin  
+http://localhost:5050
 
 
 ## 構成
 * phpなコンテンツは./appに配置となります  
-* mysqlの設定は./mysql/conf/custom.cnf
 * nginxの設定は./nginx/site.conf
 
 ```
 .
 ├── app
 │   └── index.php
-├── mysql
-│   └── conf
-│       └── custom.cnf
+├── pgsql
 │   └── data
 │       └── .gitkeep
 ├── nginx
@@ -41,4 +37,21 @@ http://localhost:9001
 ├── docker-compose.yml
 ├── .gitignore
 └── README.md
+```
+
+## pgadminへの接続
+デフォルトのログインアカウントは以下の通り
+```
+USER：user@domain.com
+PASS：SuperSecret
+```
+
+データベースの追加は以下の通り
+```
+サーバー名：自由に決めて
+HOSTNAME：skillup-php-step1_pgsql_1
+DBNAME：postgres
+USERNAME：postgres
+PASSWORD：example
+PORT:5432
 ```
