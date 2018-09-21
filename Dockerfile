@@ -1,6 +1,6 @@
 FROM php:7-fpm
 
 # add Driver
-RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd && \
-	docker-php-ext-install pdo_mysql
-
+RUN apt-get update && apt-get install -y libpq-dev
+RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
+RUN docker-php-ext-install pdo pdo_pgsql
