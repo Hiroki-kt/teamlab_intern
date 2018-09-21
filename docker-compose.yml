@@ -3,7 +3,7 @@ services:
     nginx:
         image: nginx
         ports:
-            - "9999:80"
+            - "9000:80"
         depends_on:
             - php
         volumes:
@@ -16,6 +16,7 @@ services:
         build: ./pgsql
         ports:
             - "5432:5432"
+# Windowsの場合に権限エラーでDBが起動しない時は、開発環境でのデータ永続化を諦めて直下の２行（Volumes設定）をコメントアウトすることで、とりあえず動くはず
         volumes:
             - ./pgsql/data:/var/lib/postgresql/data
         environment:
