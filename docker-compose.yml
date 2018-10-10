@@ -7,21 +7,24 @@ services:
         depends_on:
             - php
         volumes:
-            - "./app:/app"
+            - ./app:/app
             - ./nginx/site.conf:/etc/nginx/conf.d/default.conf:cached
     php:
         build: .
         volumes:
-            - "./app:/app"
+            - ./app:/app
     pgsql:
         build: ./pgsql
         ports:
             - "5432:5432"
-# Windowsの場合に権限エラーでDBが起動しない時は、開発環境でのデータ永続化を諦めて直下の２行（Volumes設定）をコメントアウトすることで、とりあえず動くはず
         volumes:
-            - ./pgsql/data:/var/lib/postgresql/data
+            - pgsql-data:/var/lib/postgresql/data
         environment:
             - POSTGRES_PASSWORD=example
+            - POSTGRES_USER=postgres
+            - POSTGRES_DB=postgres
+    pgsql-data:
+        image: busybox
     pgadmin:
         image: dpage/pgadmin4
         ports:
@@ -29,3 +32,7 @@ services:
         environment:
             - PGADMIN_DEFAULT_EMAIL=user@domain.com
             - PGADMIN_DEFAULT_PASSWORD=SuperSecret
+        volumes:
+            - ./pgadmin:/var/lib/pgadmin
+volumes:
+  pgsql-data:
