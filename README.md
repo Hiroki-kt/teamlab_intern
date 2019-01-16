@@ -33,11 +33,12 @@ http://localhost:5050
 .
 ├── app
 │   └── index.php
+├── nginx
+│   └── site.conf
+├── pgadmin
 ├── pgsql
 │   └── data
 │       └── .gitkeep
-├── nginx
-│   └── site.conf
 ├── docker-compose.yml
 ├── .gitignore
 └── README.md
@@ -53,7 +54,7 @@ PASS：SuperSecret
 データベースの追加は以下の通り
 ```
 サーバー名：自由に決めて
-HOSTNAME：skillup-php-step1_pgsql_1
+HOSTNAME：pgsql
 DBNAME：postgres
 USERNAME：postgres
 PASSWORD：example
